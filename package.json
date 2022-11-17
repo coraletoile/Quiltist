@@ -2,10 +2,11 @@
   "name": "soloproject",
   "version": "1.0.0",
   "description": "",
-  "main": "Untitled-1.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "dev": "webpack serve --open && npm start"
   },
   "keywords": [],
   "author": "",
