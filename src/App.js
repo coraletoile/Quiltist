@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
-import QuiltDetails from '../Components/quiltDetails'
+import QuiltDetails from './Components/quiltDetails'
 
 class App extends Component {
 
@@ -45,9 +45,7 @@ class App extends Component {
     render (){
         const QuiltBoxes = [];
         for (let i = 0; i < this.state.quilts.length; i++){
-            let curr = this.state.quilts[i]
-            QuiltBoxes.push(<QuiltDetails quilt={curr} key = {i}/> )
-            console.log(this.state.quilts[i])
+            QuiltBoxes.push(<QuiltDetails quilt={this.state.quilts[i]} key = {i}/> )
         }
 
 
@@ -55,14 +53,15 @@ class App extends Component {
 
 
         return (
-            <section>
-                 
-                    <p> hi </p>
+            <div ClassName= 'Home'>
+                <div className='Header'>
+                    <h1> Quiltist </h1>
+                    <h4> Save important details about your pieces</h4>
+                </div>
+                <div ClassName= 'Quilt'>
                     {QuiltBoxes}
-
-            </section>
-                   
-                
+                </div>
+            </div>   
         )
     }
 }
