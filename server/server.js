@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const routes = require('./routes/cities')
+const routes = require('./routes/quilts')
 const path = require('path');
 require('dotenv').config()
 const axios = require('axios');
 const qs = require('qs');
+const mongoose =require('mongoose')
+
 
 
 //middleware
@@ -17,18 +19,26 @@ app.use((req, res, next) => {
 
 
 //routes
-app.use('/api/cities', routes)
+app.use('/api/quilts', routes)
 
-
-
-
-
-
-
-
-
-
-// listen for requests
+// connect to DB
+mongoose.connect(process.env.MONG_URI)
+.then(()=> {
+  // listen for requests
 app.listen(process.env.PORT, () => {
-    console.log('listening on port 3000')
+  console.log('connected to db & listening on port', process.env.PORT)
 })
+
+})
+.catch((error) => {
+  console.log(error)
+})
+
+
+
+
+
+
+
+
+
