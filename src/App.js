@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import QuiltDetails from './Components/quiltDetails'
+import "./styles.css"
 
 class App extends Component {
 
