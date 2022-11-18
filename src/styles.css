@@ -1,12 +1,18 @@
 .Home {
-    background-color: peru;
+    background-color: rgb(223, 206, 192);
     display: grid;
     grid-template-columns: 1fr 1 fr;
     gap: 100px;
 }
 
 .Header {
-    
+    color: rgb(11, 56, 11);
+    background-color: whitesmoke;
+    border-radius: 4x;
+    margin: 10px 20px auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px black;
 
 }
 
@@ -32,13 +38,13 @@ span b {
 
 .quiltDetails h2 {
     font-size: 1.8em;
-    color: pink;
+    color: palevioletred;
 
 }
 
 button {
     background-color: whitesmoke;
-    color: green;
+    color: rgb(11, 56, 11);
     margin: 20px;
     border-radius: 10%;
 }
@@ -50,6 +56,10 @@ button {
     padding: 20px;
     position: relative;
     box-shadow: 2px 2px 5px black;
+}
+
+.Form h3 {
+    color: palevioletred
 }
 
 

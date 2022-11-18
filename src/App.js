@@ -49,7 +49,7 @@ class App extends Component {
     //this.handleclick = this.handleClick.bind(this)
 
     }
-
+/*
     handleSubmit = () => {}
     updateData = (target, value) => {
         this.setState((prevState) => {
@@ -61,6 +61,7 @@ class App extends Component {
            
             
         }
+        */
 
     render (){
         const QuiltBoxes = [];
