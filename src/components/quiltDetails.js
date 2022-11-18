@@ -16,12 +16,13 @@ class QuiltDetails extends Component {
        
         return (
             <div className= 'quiltDetails'>
-                <h4>{QuiltName}</h4>
-                <h4>{CompletionSeasonYear}</h4>
-                <h4>{Giftee}</h4>
-                <h4>{Pattern}</h4>
-                <h4>{Notes}</h4>
-                <p> hello </p>
+                <h2>{QuiltName}</h2>
+                <span><b>Giftee:</b> {Giftee}</span>
+                <span><b>Completed:</b> {CompletionSeasonYear}</span>
+                <span><b>Pattern:</b> {Pattern}</span>
+                <span><b>Notes:</b> {Notes}</span>
+                <button id='update'> update quilt </button>
+                <button id= 'delete'> delete quilt </button>
 
             </div>
         )

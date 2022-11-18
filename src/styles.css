@@ -1,4 +1,58 @@
-div {
-    background-color: blue
+.Home {
+    background-color: peru;
+    display: grid;
+    grid-template-columns: 1fr 1 fr;
+    gap: 100px;
+}
+
+.Header {
+    
 
 }
+
+.quiltDetails {
+    background-color: whitesmoke;
+    border-radius: 4x;
+    margin: 10px 20px auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px black;
+    
+}
+
+span {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+    
+}
+span b {
+    font-size: 0.9em;
+}
+
+.quiltDetails h2 {
+    font-size: 1.8em;
+    color: pink;
+
+}
+
+button {
+    background-color: whitesmoke;
+    color: green;
+    margin: 20px;
+    border-radius: 10%;
+}
+
+.Form {
+    background-color: whitesmoke;
+    border-radius: 10x;
+    margin: 10px 20px auto;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px black;
+}
+
+
+
+
+

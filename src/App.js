@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import QuiltDetails from './Components/quiltDetails'
+import QuiltForm from './Components/quiltForm'
 import "./styles.css"
 
 class App extends Component {
@@ -8,7 +9,8 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            quilts: []
+            quilts: [],
+            quiltForm: []
 
         }
     }
@@ -28,6 +30,10 @@ class App extends Component {
             this.setState({
                 quilts: data
             });
+
+   
+        
+
             
 
 
@@ -39,28 +45,46 @@ class App extends Component {
         .catch((error) => {
             {error: "error in componentdidmount"}
         })
-  }
+  
+    //this.handleclick = this.handleClick.bind(this)
 
+    }
 
+    handleSubmit = () => {}
+    updateData = (target, value) => {
+        this.setState((prevState) => {
+            return({
+                ...prevState,
+                target: 'value'
+            })
+        })
+           
+            
+        }
 
     render (){
         const QuiltBoxes = [];
         for (let i = 0; i < this.state.quilts.length; i++){
-            QuiltBoxes.push(<QuiltDetails quilt={this.state.quilts[i]} key = {i}/> )
-        }
+            QuiltBoxes.push(<QuiltDetails quilt={this.state.quilts[i]} key = {i} handleClick={this.handleClick}/> )}
 
 
         
 
 
         return (
-            <div ClassName= 'Home'>
+            <div className='Home'>
                 <div className='Header'>
                     <h1> Quiltist </h1>
                     <h4> Save important details about your pieces</h4>
                 </div>
-                <div ClassName= 'Quilt'>
+                <div ClassName='Quilt'>
                     {QuiltBoxes}
+                </div>
+
+                <div className= 'Form'>
+                    <QuiltForm updateData= {this.updateData} />
+
+
                 </div>
             </div>   
         )
