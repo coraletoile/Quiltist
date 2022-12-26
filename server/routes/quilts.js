@@ -3,12 +3,15 @@ const { request } = require('express')
 const express = require('express')
 const Quilt = require('../models/quiltModel')
 require('dotenv').config()
+
+
 const {
   getQuilts,
   getOneQuilt,
   createQuilt,
   deleteQuilt,
-  updateQuilt
+  updateQuilt,
+  cache
 } = require('../controllers/quiltController')
 
 const router = express.Router()
@@ -18,7 +21,7 @@ const router = express.Router()
 router.get('/', getQuilts)
 
 //get single quilt
-router.get('/:id', getOneQuilt)
+router.get('/:id', cache, getOneQuilt)
 
 // post a new quilt
 
@@ -31,6 +34,7 @@ router.delete('/:id', deleteQuilt)
 //update a quilt
 
 router.patch('/:id', updateQuilt)
+
 
 
 

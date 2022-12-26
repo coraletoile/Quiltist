@@ -1,5 +1,17 @@
 const Quilt = require('../models/quiltModel')
 const mongoose = require('mongoose')
+const Redis = require('ioredis')
+
+const redis = new Redis()
+
+
+
+// make a connection to the local instance of redis
+//const client = redis.createClient(6379);
+ 
+redis.on("error", (error) => {
+ console.error(error);
+});
 
 //get all quilts
 
@@ -11,6 +23,19 @@ const getQuilts = async (req, res) => {
 
 //get a single quilt
 
+const cache = (req, res, next) => {
+  const { id } = req.params;
+  redis.get(id, (error, result) => {
+    if (error) throw error;
+    if (result !== null) {
+      return res.json(JSON.parse(result));
+    } else {
+      return next();
+    }
+  })
+};
+
+
 const getOneQuilt = async (req, res) => {
   const {id} = req.params
 
@@ -19,6 +44,8 @@ const getOneQuilt = async (req, res) => {
   }
 
   const quilt = await Quilt.findById(id)
+  redis.set(id, JSON.stringify(quilt), 'ex', 15); 
+  
 
   if(!quilt) {
     return res.status(404).json({error: 'no such quilt'})
@@ -88,10 +115,13 @@ const updateQuilt = async (req, res) => {
 
 
 
+
+
 module.exports = {
     getQuilts,
     getOneQuilt,
     createQuilt,
     deleteQuilt,
-    updateQuilt
+    updateQuilt,
+    cache
 }

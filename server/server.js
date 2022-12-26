@@ -8,7 +8,6 @@ const qs = require('qs');
 const mongoose =require('mongoose')
 
 
-
 //middleware
 app.use(express.json())
 
@@ -20,6 +19,14 @@ app.use((req, res, next) => {
 
 //routes
 app.use('/api/quilts', routes)
+
+
+
+  // redis
+
+
+
+
 
 // connect to DB
 mongoose.connect(process.env.MONG_URI)
